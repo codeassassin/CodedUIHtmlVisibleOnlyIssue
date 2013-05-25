@@ -53,6 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodedUITest1.cs" />
+    <Compile Include="RecordedUIMap.cs">
+      <DependentUpon>RecordedUIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="RecordedUIMap.Designer.cs">
+      <DependentUpon>RecordedUIMap.uitest</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="example2.htm">
@@ -61,6 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RecordedUIMap.uitest">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
