@@ -15,6 +15,8 @@ namespace htmlvisibleonly
         [ExpectedException(typeof(FailedToPerformActionOnHiddenControlException))]
         public void CodedUITestMethod1()
         {
+            // Playback.PlaybackSettings.SmartMatchOptions = SmartMatchOptions.None; // tried Sudhish Mathuria's suggestion
+
             var example2Path = Path.Combine(TestContext.TestDeploymentDir, "example2.htm");
             
             var window = BrowserWindow.Launch(example2Path);
@@ -31,9 +33,9 @@ namespace htmlvisibleonly
             var allMatches = visibleLink.FindMatchingControls();
             Assert.AreEqual(2, allMatches.Count, "Should be two matching.");
             
-            visibleLink.Find(); // THIS SHOULD BE THE VISIBLE ONE CARE
+            visibleLink.Find(); // THIS SHOULD BE THE VISIBLE ONE
 
-            Debug.WriteLine("BoundingRectangle: " + visibleLink.BoundingRectangle.ToString());
+            Debug.WriteLine("BoundingRectangle: " + visibleLink.BoundingRectangle);
             Assert.IsTrue(visibleLink.BoundingRectangle.Width > 0, "Width should positive.");
             Assert.IsTrue(visibleLink.BoundingRectangle.Height > 0, "Height should positive.");
 
